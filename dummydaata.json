@@ -1399,6 +1399,7 @@
       "tags": [
         "seafood"
       ],
+      "brand": "GRO-BRD-FIS-024",
       "sku": "GRO-BRD-FIS-024",
       "weight": 6,
       "dimensions": {
@@ -1795,9 +1796,1039 @@
         "https://cdn.dummyjson.com/product-images/groceries/kiwi/1.webp"
       ],
       "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp"
-    }
+    },
+    {
+      "id": 31,
+      "title": "Creamy Peanut Butter",
+      "description": "Smooth and creamy peanut butter, made from 100% roasted peanuts. Perfect for sandwiches, baking, or as a delicious protein-packed snack. No added sugar or palm oil.",
+      "category": "groceries",
+      "price": 4.5,
+      "discountPercentage": 5.5,
+      "rating": 4.85,
+      "stock": 150,
+      "tags": [
+        "spreads",
+        "peanut butter",
+        "groceries",
+        "healthy"
+      ],
+      "brand": "Nutty Delights",
+      "sku": "GRO-NUT-PEA-031",
+      "weight": 1,
+      "dimensions": {
+        "width": 8,
+        "height": 10,
+        "depth": 8
+      },
+      "warrantyInformation": "N/A",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "The best peanut butter I've ever had!",
+          "date": "2025-05-01T10:00:00.000Z",
+          "reviewerName": "Alice Johnson",
+          "reviewerEmail": "alice.j@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great taste and texture, just a bit pricey.",
+          "date": "2025-05-02T11:20:00.000Z",
+          "reviewerName": "Bob Williams",
+          "reviewerEmail": "bob.w@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7891234560317",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/peanut-butter/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/peanut-butter/thumbnail.webp"
+    },
+    {
+      "id": 32,
+      "title": "Classic Red T-Shirt",
+      "description": "A vibrant red t-shirt made from 100% premium combed cotton. Soft, breathable, and durable, it's a perfect staple for any wardrobe. Features a classic crew neck, a tailored fit, and resists fading.",
+      "category": "tops",
+      "price": 15.99,
+      "discountPercentage": 10,
+      "rating": 4.6,
+      "stock": 250,
+      "tags": [
+        "apparel",
+        "t-shirt",
+        "red",
+        "clothing",
+        "basics"
+      ],
+      "brand": "Casual Wear Co.",
+      "sku": "TOP-CWC-RED-032",
+      "weight": 0.2,
+      "dimensions": {
+        "width": 30,
+        "height": 1,
+        "depth": 40
+      },
+      "warrantyInformation": "30-day warranty against defects",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Perfect fit and lovely color!",
+          "date": "2025-05-03T14:15:00.000Z",
+          "reviewerName": "Charlie Brown",
+          "reviewerEmail": "charlie.b@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Very soft material. I bought three!",
+          "date": "2025-05-04T16:45:00.000Z",
+          "reviewerName": "Diana Prince",
+          "reviewerEmail": "diana.p@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7891234560324",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tops/red-t-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/tops/red-t-shirt/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/tops/red-t-shirt/thumbnail.webp"
+    },
+    {
+      "id": 33,
+      "title": "Essential Black T-Shirt",
+      "description": "A timeless black t-shirt crafted from high-quality, pre-shrunk heavyweight cotton for a consistent fit and feel. Its versatile design makes it an essential piece for layering or wearing on its own. Resists pilling and holds its shape.",
+      "category": "tops",
+      "price": 14.99,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 300,
+      "tags": [
+        "apparel",
+        "t-shirt",
+        "black",
+        "clothing",
+        "essentials"
+      ],
+      "brand": "Urban Basics",
+      "sku": "TOP-URB-BLK-033",
+      "weight": 0.22,
+      "dimensions": {
+        "width": 30,
+        "height": 1,
+        "depth": 40
+      },
+      "warrantyInformation": "30-day warranty against defects",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Best black tee I own. The quality is amazing.",
+          "date": "2025-05-05T09:00:00.000Z",
+          "reviewerName": "Eva Green",
+          "reviewerEmail": "eva.g@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Good, solid t-shirt. A bit thick for summer though.",
+          "date": "2025-05-06T12:30:00.000Z",
+          "reviewerName": "Frank Miller",
+          "reviewerEmail": "frank.m@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7891234560331",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tops/black-t-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/tops/black-t-shirt/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/tops/black-t-shirt/thumbnail.webp"
+    },
+    {
+      "id": 34,
+      "title": "Red T-Shirt with Black Dots",
+      "description": "Make a statement with this playful red t-shirt featuring a classic black polka dot pattern. Made from a soft cotton-modal blend for all-day comfort and a beautiful drape. A fun twist on a classic tee.",
+      "category": "tops",
+      "price": 19.99,
+      "discountPercentage": 15,
+      "rating": 4.3,
+      "stock": 120,
+      "tags": [
+        "apparel",
+        "t-shirt",
+        "red",
+        "polka dot",
+        "clothing",
+        "fashion"
+      ],
+      "brand": "Pattern Play",
+      "sku": "TOP-PTP-RBD-034",
+      "weight": 0.18,
+      "dimensions": {
+        "width": 30,
+        "height": 1,
+        "depth": 40
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "So cute! I get so many compliments.",
+          "date": "2025-05-07T18:00:00.000Z",
+          "reviewerName": "Grace Kelly",
+          "reviewerEmail": "grace.k@x.dummyjson.com"
+        },
+        {
+          "rating": 3,
+          "comment": "The dots are a bit larger than I expected.",
+          "date": "2025-05-08T19:20:00.000Z",
+          "reviewerName": "Henry Cavill",
+          "reviewerEmail": "henry.c@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7891234560348",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tops/red-t-shirt-black-dots/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/tops/red-t-shirt-black-dots/thumbnail.webp"
+    },
+    {
+      "id": 35,
+      "title": "Classic Striped T-Shirt",
+      "description": "A nautical-inspired striped t-shirt with timeless appeal. Featuring classic navy and white stripes, this tee is made from soft, breathable 100% organic cotton. Perfect for a casual, stylish look. Boat neck design.",
+      "category": "tops",
+      "price": 24.99,
+      "discountPercentage": 5,
+      "rating": 4.7,
+      "stock": 180,
+      "tags": [
+        "apparel",
+        "t-shirt",
+        "striped",
+        "clothing",
+        "nautical",
+        "breton"
+      ],
+      "brand": "Seaside Apparel",
+      "sku": "TOP-SEA-STP-035",
+      "weight": 0.21,
+      "dimensions": {
+        "width": 30,
+        "height": 1,
+        "depth": 40
+      },
+      "warrantyInformation": "30-day warranty against defects",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Love this shirt, it's my new favorite.",
+          "date": "2025-05-09T10:10:10.000Z",
+          "reviewerName": "Ivy Jones",
+          "reviewerEmail": "ivy.j@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great quality, fits well. The neck is a bit wider than a standard crew neck.",
+          "date": "2025-05-10T11:11:11.000Z",
+          "reviewerName": "Jack Ryan",
+          "reviewerEmail": "jack.r@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7891234560355",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tops/striped-t-shirt/1.webp",
+        "https://cdn.dummyjson.com/product-images/tops/striped-t-shirt/2.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/tops/striped-t-shirt/thumbnail.webp"
+    },
+    {
+      "id": 36,
+      "title": "Black T-Shirt with Red Dots",
+      "description": "A bold and stylish black t-shirt adorned with vibrant red polka dots. This eye-catching design is printed on a comfortable, high-quality cotton tee, perfect for adding a pop of color to your outfit. The slim fit design offers a modern silhouette.",
+      "category": "tops",
+      "price": 19.99,
+      "discountPercentage": 15,
+      "rating": 4.4,
+      "stock": 115,
+      "tags": [
+        "apparel",
+        "t-shirt",
+        "black",
+        "polka dot",
+        "clothing",
+        "fashion"
+      ],
+      "brand": "Pattern Play",
+      "sku": "TOP-PTP-BRD-036",
+      "weight": 0.19,
+      "dimensions": {
+        "width": 30,
+        "height": 1,
+        "depth": 40
+      },
+      "warrantyInformation": "No warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Looks even better in person. Very cool shirt.",
+          "date": "2025-05-11T13:00:00.000Z",
+          "reviewerName": "Kyle Reese",
+          "reviewerEmail": "kyle.r@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Nice shirt, but it's a slim fit so consider sizing up.",
+          "date": "2025-05-12T15:30:00.000Z",
+          "reviewerName": "Lana Lang",
+          "reviewerEmail": "lana.l@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-04-30T09:41:02.053Z",
+        "updatedAt": "2025-04-30T09:41:02.053Z",
+        "barcode": "7891234560362",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tops/black-t-shirt-red-dots/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/tops/black-t-shirt-red-dots/thumbnail.webp"
+    },
+    {
+      "id": 37,
+      "title": "Coca-Cola Classic Soda Pop, 12 fl oz Cans, 12 Pack",
+      "description": "Enjoy the crisp, refreshing taste of Coca-Cola Classic in a convenient 12-pack of 12 fl oz cans. Perfect for parties, lunches, or stocking your fridge. Each can delivers the iconic flavor that's been loved for generations.",
+      "category": "groceries",
+      "price": 8.48,
+      "discountPercentage": 0,
+      "rating": 4.9,
+      "stock": 500,
+      "tags": [
+        "beverages",
+        "soda",
+        "coke",
+        "groceries"
+      ],
+      "brand": "Coca-Cola",
+      "sku": "GRO-COC-CLA-037",
+      "weight": 10.5,
+      "dimensions": {
+        "width": 15,
+        "height": 5,
+        "depth": 4
+      },
+      "warrantyInformation": "N/A",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Can't beat the classic! Perfect for my fridge.",
+          "date": "2025-05-15T10:30:00.000Z",
+          "reviewerName": "John Doe",
+          "reviewerEmail": "john.doe@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-05-14T09:00:00.000Z",
+        "updatedAt": "2025-05-14T09:00:00.000Z",
+        "barcode": "049000028904",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://i5.walmartimages.com/seo/Coca-Cola-Classic-Soda-Pop-Fridge-Pack-12-fl-oz-Cans-12-Pack_6e8e2e1d-7e2e-4e7e-8e7e-1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.1e7e2e7e8e7e.jpeg"
+      ],
+      "thumbnail": "https://i5.walmartimages.com/asr/6e8e2e1d-7e2e-4e7e-8e7e-1e7e2e7e8e7e_1.1e7e2e7e8e7e.jpeg"
+    },
+    {
+      "id": 38,
+      "title": "Diet Coke",
+      "description": "The same great Coca-Cola taste with zero calories. Crisp, light, and refreshing, Diet Coke is the perfect choice for those who want to enjoy a soda without the sugar.",
+      "category": "groceries",
+      "price": 24.99,
+      "discountPercentage": 5.1,
+      "rating": 4.6,
+      "stock": 450,
+      "tags": [
+        "beverages",
+        "soda",
+        "diet coke",
+        "zero calorie"
+      ],
+      "brand": "Coca-Cola",
+      "sku": "GRO-COC-DIE-038",
+      "weight": 8.5,
+      "dimensions": {
+        "width": 24,
+        "height": 12,
+        "depth": 35
+      },
+      "warrantyInformation": "N/A",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "My go-to drink!",
+          "date": "2025-05-16T11:00:00.000Z",
+          "reviewerName": "Jane Smith",
+          "reviewerEmail": "jane.smith@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-05-14T09:00:00.000Z",
+        "updatedAt": "2025-05-14T09:00:00.000Z",
+        "barcode": "049000028911",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/diet-coke/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/diet-coke/thumbnail.webp"
+    },
+    {
+      "id": 39,
+      "title": "Coke Zero Sugar",
+      "description": "Real Coca-Cola taste with zero sugar and zero calories. Coke Zero Sugar looks and tastes even more like the original, but without the sugar.",
+      "category": "groceries",
+      "price": 24.99,
+      "discountPercentage": 0,
+      "rating": 4.75,
+      "stock": 480,
+      "tags": [
+        "beverages",
+        "soda",
+        "coke zero",
+        "zero sugar"
+      ],
+      "brand": "Coca-Cola",
+      "sku": "GRO-COC-ZER-039",
+      "weight": 8.5,
+      "dimensions": {
+        "width": 24,
+        "height": 12,
+        "depth": 35
+      },
+      "warrantyInformation": "N/A",
+      "shippingInformation": "Ships in 1-2 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Tastes just like the real thing!",
+          "date": "2025-05-17T12:00:00.000Z",
+          "reviewerName": "Peter Jones",
+          "reviewerEmail": "peter.jones@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-05-14T09:00:00.000Z",
+        "updatedAt": "2025-05-14T09:00:00.000Z",
+        "barcode": "049000059526",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/coke-zero/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/coke-zero/thumbnail.webp"
+    },
+    {
+      "id": 40,
+      "title": "Skippy Super Chunk Peanut Butter",
+      "description": "For the ultimate peanut butter fan, Skippy Super Chunk is packed with tons of real peanut pieces. A gluten-free and kosher spread with 7g of protein per serving.",
+      "category": "groceries",
+      "price": 7.99,
+      "discountPercentage": 10.5,
+      "rating": 4.9,
+      "stock": 200,
+      "tags": [
+        "spreads",
+        "peanut butter",
+        "crunchy",
+        "groceries"
+      ],
+      "brand": "Skippy",
+      "sku": "GRO-SKI-CHU-040",
+      "weight": 1.13,
+      "dimensions": {
+        "width": 10,
+        "height": 15,
+        "depth": 10
+      },
+      "warrantyInformation": "N/A",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "The best crunchy peanut butter on the market!",
+          "date": "2025-05-18T14:00:00.000Z",
+          "reviewerName": "Chris Green",
+          "reviewerEmail": "chris.green@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-05-14T09:00:00.000Z",
+        "updatedAt": "2025-05-14T09:00:00.000Z",
+        "barcode": "037600110398",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/skippy-super-chunk/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/skippy-super-chunk/thumbnail.webp"
+    },
+    {
+      "id": 41,
+      "title": "Jif Creamy Peanut Butter",
+      "description": "That Jif'ing good taste. A perfectly smooth and creamy texture with the fresh roasted peanut taste you love. Perfect for sandwiches, baking, or eating right from the spoon.",
+      "category": "groceries",
+      "price": 7.49,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 250,
+      "tags": [
+        "spreads",
+        "peanut butter",
+        "creamy",
+        "groceries"
+      ],
+      "brand": "Jif",
+      "sku": "GRO-JIF-CRE-041",
+      "weight": 1.13,
+      "dimensions": {
+        "width": 10,
+        "height": 15,
+        "depth": 10
+      },
+      "warrantyInformation": "N/A",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "So smooth and delicious. Jif is the only brand I buy.",
+          "date": "2025-05-19T15:00:00.000Z",
+          "reviewerName": "Sarah Connor",
+          "reviewerEmail": "sarah.connor@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "30 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-05-14T09:00:00.000Z",
+        "updatedAt": "2025-05-14T09:00:00.000Z",
+        "barcode": "051500255167",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/groceries/jif-creamy/1.webp"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/jif-creamy/thumbnail.webp"
+    },
+    {
+      "id": 42,
+      "title": "Men's V-Neck T-Shirt",
+      "description": "A modern take on a classic, this V-neck t-shirt offers a stylish alternative to the crew neck. Made from a soft, lightweight jersey blend for ultimate comfort and a flattering fit.",
+      "category": "tops",
+      "price": 18.99,
+      "discountPercentage": 10,
+      "rating": 4.5,
+      "stock": 200,
+      "tags": [
+        "apparel",
+        "t-shirt",
+        "v-neck",
+        "clothing",
+        "men"
+      ],
+      "brand": "Modern Fit",
+      "sku": "TOP-MOD-VNK-042",
+      "weight": 0.18,
+      "dimensions": {
+        "width": 30,
+        "height": 1,
+        "depth": 40
+      },
+      "warrantyInformation": "30-day warranty",
+      "shippingInformation": "Ships in 3-5 business days",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Great fit, not too deep of a V.",
+          "date": "2025-05-20T10:00:00.000Z",
+          "reviewerName": "Mike Ross",
+          "reviewerEmail": "mike.ross@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "60 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2025-05-14T09:00:00.000Z",
+        "updatedAt": "2025-05-14T09:00:00.000Z",
+        "barcode": "7891234560423",
+        "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/product-images/tops/v-neck-t-shirt/1.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/tops/v-neck-t-shirt/thumbnail.webp"
+  },
+  {
+    "id": 43,
+    "title": "Tie-Dye Spiral T-Shirt",
+    "description": "Channel a retro vibe with this vibrant, multi-color tie-dye t-shirt. Each shirt is hand-dyed, making every piece unique. Made from 100% heavyweight cotton for lasting wear.",
+    "category": "tops",
+    "price": 29.99,
+    "discountPercentage": 20,
+    "rating": 4.8,
+    "stock": 100,
+    "tags": [
+      "apparel",
+      "t-shirt",
+      "tie-dye",
+      "clothing",
+      "retro"
+    ],
+    "brand": "Cosmic Dyes",
+    "sku": "TOP-COS-TIE-043",
+    "weight": 0.25,
+    "dimensions": {
+      "width": 30,
+      "height": 1,
+      "depth": 40
+    },
+    "warrantyInformation": "No warranty",
+    "shippingInformation": "Ships in 1 week",
+    "availabilityStatus": "In Stock",
+    "reviews": [
+      {
+        "rating": 5,
+        "comment": "The colors are so bright and beautiful!",
+        "date": "2025-05-21T11:00:00.000Z",
+        "reviewerName": "Summer Day",
+        "reviewerEmail": "summer.day@x.dummyjson.com"
+      }
+    ],
+    "returnPolicy": "30 days return policy",
+    "minimumOrderQuantity": 1,
+    "meta": {
+      "createdAt": "2025-05-14T09:00:00.000Z",
+      "updatedAt": "2025-05-14T09:00:00.000Z",
+      "barcode": "7891234560430",
+      "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+    },
+    "images": [
+      "https://cdn.dummyjson.com/product-images/tops/tie-dye-t-shirt/1.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/tops/tie-dye-t-shirt/thumbnail.webp"
+  },
+  {
+    "id": 44,
+    "title": "HydraBoost Daily Moisturiser",
+    "description": "A lightweight, non-greasy daily moisturiser formulated with hyaluronic acid and ceramides to lock in moisture and restore the skin's natural barrier. Suitable for all skin types.",
+    "category": "skincare",
+    "price": 22.5,
+    "discountPercentage": 10,
+    "rating": 4.7,
+    "stock": 150,
+    "tags": [
+      "skincare",
+      "moisturiser",
+      "face cream",
+      "beauty"
+    ],
+    "brand": "DermaGlow",
+    "sku": "SKI-DER-MOI-044",
+    "weight": 0.15,
+    "dimensions": {
+      "width": 6,
+      "height": 12,
+      "depth": 6
+    },
+    "warrantyInformation": "N/A",
+    "shippingInformation": "Ships in 3-5 business days",
+    "availabilityStatus": "In Stock",
+    "reviews": [
+      {
+        "rating": 5,
+        "comment": "Absorbs quickly and leaves my skin feeling soft all day.",
+        "date": "2025-05-22T09:30:00.000Z",
+        "reviewerName": "Olivia Chen",
+        "reviewerEmail": "olivia.chen@x.dummyjson.com"
+      }
+    ],
+    "returnPolicy": "30 days return policy",
+    "minimumOrderQuantity": 1,
+    "meta": {
+      "createdAt": "2025-05-14T09:00:00.000Z",
+      "updatedAt": "2025-05-14T09:00:00.000Z",
+      "barcode": "8801234560447",
+      "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+    },
+    "images": [
+      "https://cdn.dummyjson.com/product-images/skincare/daily-moisturiser/1.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/skincare/daily-moisturiser/thumbnail.webp"
+  },
+  {
+    "id": 45,
+    "title": "PureShield Mineral Sunscreen SPF 50",
+    "description": "A gentle, 100% mineral-based sunscreen providing broad-spectrum UVA/UVB protection with SPF 50. Formulated with zinc oxide and titanium dioxide, it's perfect for sensitive skin.",
+    "category": "skincare",
+    "price": 18.99,
+    "discountPercentage": 0,
+    "rating": 4.6,
+    "stock": 180,
+    "tags": [
+      "skincare",
+      "sunscreen",
+      "spf50",
+      "beauty",
+      "mineral"
+    ],
+    "brand": "SunSafe",
+    "sku": "SKI-SUN-SPF50-045",
+    "weight": 0.1,
+    "dimensions": {
+      "width": 5,
+      "height": 15,
+      "depth": 5
+    },
+    "warrantyInformation": "N/A",
+    "shippingInformation": "Ships in 3-5 business days",
+    "availabilityStatus": "In Stock",
+    "reviews": [
+      {
+        "rating": 4,
+        "comment": "Great protection, but leaves a slight white cast.",
+        "date": "2025-05-23T10:00:00.000Z",
+        "reviewerName": "Ben Carter",
+        "reviewerEmail": "ben.carter@x.dummyjson.com"
+      },
+      {
+        "rating": 5,
+        "comment": "Doesn't irritate my sensitive skin at all. Highly recommend.",
+        "date": "2025-05-24T12:00:00.000Z",
+        "reviewerName": "Chloe Davis",
+        "reviewerEmail": "chloe.davis@x.dummyjson.com"
+      }
+    ],
+    "returnPolicy": "30 days return policy",
+    "minimumOrderQuantity": 1,
+    "meta": {
+      "createdAt": "2025-05-14T09:00:00.000Z",
+      "updatedAt": "2025-05-14T09:00:00.000Z",
+      "barcode": "8801234560454",
+      "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+    },
+    "images": [
+      "https://cdn.dummyjson.com/product-images/skincare/sunscreen-spf50/1.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/skincare/sunscreen-spf50/thumbnail.webp"
+  },
+  {
+    "id": 46,
+    "title": "Active Sport Sunscreen SPF 30",
+    "description": "A high-performance, water-resistant (80 minutes) sunscreen designed for an active lifestyle. This SPF 30 formula provides broad-spectrum UVA/UVB protection in a lightweight, non-greasy lotion.",
+    "category": "skincare",
+    "price": 14.99,
+    "discountPercentage": 5,
+    "rating": 4.8,
+    "stock": 220,
+    "tags": [
+      "skincare",
+      "sunscreen",
+      "spf30",
+      "sport",
+      "water-resistant"
+    ],
+    "brand": "SunSafe",
+    "sku": "SKI-SUN-SPF30-046",
+    "weight": 0.2,
+    "dimensions": {
+      "width": 6,
+      "height": 18,
+      "depth": 6
+    },
+    "warrantyInformation": "N/A",
+    "shippingInformation": "Ships in 1-2 business days",
+    "availabilityStatus": "In Stock",
+    "reviews": [
+      {
+        "rating": 5,
+        "comment": "Stays on even when I'm swimming. No sunburns!",
+        "date": "2025-05-25T14:00:00.000Z",
+        "reviewerName": "David Evans",
+        "reviewerEmail": "david.evans@x.dummyjson.com"
+      }
+    ],
+    "returnPolicy": "30 days return policy",
+    "minimumOrderQuantity": 1,
+    "meta": {
+      "createdAt": "2025-05-14T09:00:00.000Z",
+      "updatedAt": "2025-05-14T09:00:00.000Z",
+      "barcode": "8801234560461",
+      "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+    },
+    "images": [
+      "https://cdn.dummyjson.com/product-images/skincare/sunscreen-spf30/1.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/skincare/sunscreen-spf30/thumbnail.webp"
+  },
+  {
+    "id": 47,
+    "title": "Gentle Foaming Face Wash",
+    "description": "A mild, soap-free foaming cleanser that effectively removes dirt, oil, and makeup without stripping the skin of its natural moisture. pH-balanced and fragrance-free for sensitive skin.",
+    "category": "skincare",
+    "price": 12.99,
+    "discountPercentage": 0,
+    "rating": 4.9,
+    "stock": 190,
+    "tags": [
+      "skincare",
+      "face wash",
+      "cleanser",
+      "sensitive skin"
+    ],
+    "brand": "PureFace",
+    "sku": "SKI-PUR-FWA-047",
+    "weight": 0.25,
+    "dimensions": {
+      "width": 7,
+      "height": 20,
+      "depth": 7
+    },
+    "warrantyInformation": "N/A",
+    "shippingInformation": "Ships in 3-5 business days",
+    "availabilityStatus": "In Stock",
+    "reviews": [
+      {
+        "rating": 5,
+        "comment": "So gentle on my skin, feels clean but not tight.",
+        "date": "2025-05-26T16:00:00.000Z",
+        "reviewerName": "Fiona Glenanne",
+        "reviewerEmail": "fiona.g@x.dummyjson.com"
+      }
+    ],
+    "returnPolicy": "30 days return policy",
+    "minimumOrderQuantity": 1,
+    "meta": {
+      "createdAt": "2025-05-14T09:00:00.000Z",
+      "updatedAt": "2025-05-14T09:00:00.000Z",
+      "barcode": "8801234560478",
+      "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+    },
+    "images": [
+      "https://cdn.dummyjson.com/product-images/skincare/face-wash/1.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/skincare/face-wash/thumbnail.webp"
+  },
+  {
+    "id": 48,
+    "title": "RidgeRider Pro Mountain Bike",
+    "description": "Conquer any trail with the RidgeRider Pro. Featuring a lightweight aluminum frame, front suspension fork, 21-speed Shimano shifters, and powerful disc brakes for ultimate control and performance on rugged terrain.",
+    "category": "sports",
+    "price": 599.99,
+    "discountPercentage": 15,
+    "rating": 4.7,
+    "stock": 40,
+    "tags": [
+      "sports",
+      "bicycle",
+      "mountain bike",
+      "outdoors"
+    ],
+    "brand": "RidgeRider",
+    "sku": "SPO-RID-MTB-048",
+    "weight": 14.5,
+    "dimensions": {
+      "width": 140,
+      "height": 75,
+      "depth": 20
+    },
+    "warrantyInformation": "1 year frame warranty",
+    "shippingInformation": "Ships in 1-2 weeks",
+    "availabilityStatus": "In Stock",
+    "reviews": [
+      {
+        "rating": 5,
+        "comment": "Amazing bike for the price. Handles trails like a dream.",
+        "date": "2025-05-27T18:00:00.000Z",
+        "reviewerName": "Greg House",
+        "reviewerEmail": "greg.house@x.dummyjson.com"
+      }
+    ],
+    "returnPolicy": "90 days return policy",
+    "minimumOrderQuantity": 1,
+    "meta": {
+      "createdAt": "2025-05-14T09:00:00.000Z",
+      "updatedAt": "2025-05-14T09:00:00.000Z",
+      "barcode": "9901234560485",
+      "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+    },
+    "images": [
+      "https://cdn.dummyjson.com/product-images/sports/mountain-bike/1.webp",
+      "https://cdn.dummyjson.com/product-images/sports/mountain-bike/2.webp",
+      "https://cdn.dummyjson.com/product-images/sports/mountain-bike/3.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/sports/mountain-bike/thumbnail.webp"
+  },
+  {
+    "id": 49,
+    "title": "Velocity Aero Road Bike",
+    "description": "Engineered for speed and efficiency. The Velocity Aero features a carbon fiber frame, aerodynamic design, and a precise 22-speed Shimano 105 groupset. Perfect for competitive racing or long-distance touring.",
+    "category": "sports",
+    "price": 1899.99,
+    "discountPercentage": 10,
+    "rating": 4.9,
+    "stock": 25,
+    "tags": [
+      "sports",
+      "bicycle",
+      "road bike",
+      "racing"
+    ],
+    "brand": "Velocity Cycles",
+    "sku": "SPO-VEL-ROA-049",
+    "weight": 8.2,
+    "dimensions": {
+      "width": 135,
+      "height": 70,
+      "depth": 18
+    },
+    "warrantyInformation": "5 year frame warranty",
+    "shippingInformation": "Ships in 1-2 weeks",
+    "availabilityStatus": "In Stock",
+    "reviews": [
+      {
+        "rating": 5,
+        "comment": "Incredibly light and fast. Worth every penny.",
+        "date": "2025-05-28T10:00:00.000Z",
+        "reviewerName": "Hannah Abbott",
+        "reviewerEmail": "hannah.abbott@x.dummyjson.com"
+      }
+    ],
+    "returnPolicy": "90 days return policy",
+    "minimumOrderQuantity": 1,
+    "meta": {
+      "createdAt": "2025-05-14T09:00:00.000Z",
+      "updatedAt": "2025-05-14T09:00:00.000Z",
+      "barcode": "9901234560492",
+      "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+    },
+    "images": [
+      "https://cdn.dummyjson.com/product-images/sports/road-bike/1.webp",
+      "https://cdn.dummyjson.com/product-images/sports/road-bike/2.webp",
+      "https://cdn.dummyjson.com/product-images/sports/road-bike/3.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/sports/road-bike/thumbnail.webp"
+  },
+  {
+    "id": 50,
+    "title": "UrbanGlide Hybrid City Bike",
+    "description": "The perfect blend of comfort and versatility. The UrbanGlide is ideal for commuting or leisurely rides, featuring an upright riding position, comfortable saddle, 7-speed gearing, and a convenient rear rack for carrying essentials.",
+    "category": "sports",
+    "price": 349.99,
+    "discountPercentage": 5,
+    "rating": 4.6,
+    "stock": 60,
+    "tags": [
+      "sports",
+      "bicycle",
+      "hybrid bike",
+      "city bike",
+      "commuting"
+    ],
+    "brand": "UrbanGlide",
+    "sku": "SPO-URB-HYB-050",
+    "weight": 16,
+    "dimensions": {
+      "width": 140,
+      "height": 78,
+      "depth": 22
+    },
+    "warrantyInformation": "1 year frame warranty",
+    "shippingInformation": "Ships in 5-7 business days",
+    "availabilityStatus": "In Stock",
+    "reviews": [
+      {
+        "rating": 5,
+        "comment": "Comfortable and practical for my daily commute. Love the rack!",
+        "date": "2025-05-29T12:00:00.000Z",
+        "reviewerName": "Ian Malcolm",
+        "reviewerEmail": "ian.malcolm@x.dummyjson.com"
+      }
+    ],
+    "returnPolicy": "60 days return policy",
+    "minimumOrderQuantity": 1,
+    "meta": {
+      "createdAt": "2025-05-14T09:00:00.000Z",
+      "updatedAt": "2025-05-14T09:00:00.000Z",
+      "barcode": "9901234560508",
+      "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+    },
+    "images": [
+      "https://cdn.dummyjson.com/product-images/sports/hybrid-bike/1.webp",
+      "https://cdn.dummyjson.com/product-images/sports/hybrid-bike/2.webp"
+    ],
+    "thumbnail": "https://cdn.dummyjson.com/product-images/sports/hybrid-bike/thumbnail.webp"
+  }
   ],
-  "total": 194,
+  "total": 200,
   "skip": 0,
-  "limit": 30
+  "limit": 36
 }
