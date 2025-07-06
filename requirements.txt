@@ -1,0 +1,5 @@
+cohere
+pinecone-client
+pandas
+python-dotenv
+tqdm
