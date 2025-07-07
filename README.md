@@ -111,4 +111,7 @@ PINECONE_API_KEY=your_pinecone_api_key
 ---
 
 ## 🧑‍💻 Author
-Built by a team passionate about blending NLP, CV, and practical AI for retail search.
+Built by:
+- [Krish Das](https://www.linkedin.com/in/krish-das-215aa4278/)
+- [Aditya Anand](https://www.linkedin.com/in/aditya-astralite-anand/)
+- [Yash Raj Singh](https://www.linkedin.com/in/yashhhhh/)
