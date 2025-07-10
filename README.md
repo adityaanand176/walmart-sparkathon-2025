@@ -16,9 +16,6 @@ This project is an AI-driven semantic search system for e-commerce products (e.g
 | **Python**     | Core programming language for data processing and pipelines  |
 | **Cohere (embed-v4.0)** | Embedding model for text and image (multimodal embeddings) |
 | **Pinecone**   | Vector database for fast similarity search and retrieval     |
-| **Pandas**     | Used for CSV data ingestion and manipulation                 |
-| **TQDM**       | Progress visualization for batch upsert                      |
-| **dotenv**     | Manages API keys and secrets                                 |
 
 ---
 
