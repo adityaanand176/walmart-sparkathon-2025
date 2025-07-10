@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import PromoCard from './components/PromoCard';
 import MainCarousel from './components/MainCarousel';
+import SearchPage from './components/SearchPage';
+import ProductPage from './components/ProductPage';
 
 const WalmartHeroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -121,4 +124,12 @@ const WalmartHeroPage = () => {
   );
 };
 
-export default WalmartHeroPage;
+const App = () => (
+  <Routes>
+    <Route path="/" element={<WalmartHeroPage />} />
+    <Route path="/search" element={<SearchPage />} />
+    <Route path="/product/:id" element={<ProductPage />} />
+  </Routes>
+);
+
+export default App;

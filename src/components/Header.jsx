@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MapPin, ChevronDown, Search, ShoppingCart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 function Header() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+    }
+  };
+
   return (
     <header className="bg-blue-600 text-white">
     <div className="max-w-7xl mx-auto px-4">
@@ -18,14 +30,18 @@ function Header() {
         </div>
         
         <div className="flex-1 max-w-xl mx-8">
-          <div className="relative">
+          <form className="relative" onSubmit={handleSearch}>
             <input
               type="text"
               placeholder="Search everything at Walmart online and in store"
               className="w-full py-2 px-4 rounded-full text-gray-800 pr-12"
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
             />
-            <Search className="absolute right-4 top-2.5 w-5 h-5 text-gray-600" />
-          </div>
+            <button type="submit">
+              <Search className="absolute right-4 top-2.5 w-5 h-5 text-gray-600" />
+            </button>
+          </form>
         </div>
         
         <div className="flex items-center space-x-6">
