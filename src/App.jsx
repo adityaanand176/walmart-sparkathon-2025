@@ -11,8 +11,10 @@ const WalmartHeroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
+    <>
+    
     <div className="min-h-screen bg-gray-50">
-      <Header/>
+      
       <Navigation />
       
       <main className="max-w-7xl mx-auto px-4 py-6">
@@ -121,15 +123,19 @@ const WalmartHeroPage = () => {
         </div>
       </main>
     </div>
+    </>
   );
 };
 
 const App = () => (
+  <>
+  <Header/>
   <Routes>
     <Route path="/" element={<WalmartHeroPage />} />
     <Route path="/search" element={<SearchPage />} />
     <Route path="/product/:id" element={<ProductPage />} />
   </Routes>
+  </>
 );
 
 export default App;
