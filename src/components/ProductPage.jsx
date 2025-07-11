@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Header from './Header';
+
 import { useCart } from './CartContext';
 import Papa from 'papaparse';
 

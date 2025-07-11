@@ -1,30 +1,17 @@
 import express from 'express';
-import fs from 'fs';
-import path from 'path';
-import csv from 'csv-parser';
+import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
 import cors from 'cors';
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 4000;
-const PRODUCTS_CSV = path.resolve('../walmart-products.csv');
+const MONGO_URL = process.env.MONGO_URL;
 
-let products = [];
-
-// Load products from CSV on startup
-function loadProducts() {
-  return new Promise((resolve, reject) => {
-    const results = [];
-    fs.createReadStream(PRODUCTS_CSV)
-      .pipe(csv())
-      .on('data', (data) => results.push(data))
-      .on('end', () => {
-        products = results;
-        resolve();
-      })
-      .on('error', reject);
-  });
-}
+const client = new MongoClient(MONGO_URL);
+let collection;
 
 // Helper: normalize string for search
 function normalize(str) {
@@ -32,51 +19,68 @@ function normalize(str) {
 }
 
 // Search endpoint
-app.get('/search', (req, res) => {
+app.get('/search', async (req, res) => {
   const q = normalize(req.query.q || '');
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 20;
-  let filtered = products;
-  if (q) {
-    filtered = products.filter(p =>
-      normalize(p.product_name).includes(q) ||
-      normalize(p.description).includes(q) ||
-      normalize(p.brand).includes(q) ||
-      normalize(p.category_name).includes(q) ||
-      normalize(p.breadcrumbs).includes(q)
-    );
+  const skip = (page - 1) * limit;
+
+  const query = q
+    ? {
+        $or: [
+          { product_name: { $regex: q, $options: 'i' } },
+          { description: { $regex: q, $options: 'i' } },
+          { brand: { $regex: q, $options: 'i' } },
+          { category_name: { $regex: q, $options: 'i' } },
+          { breadcrumbs: { $regex: q, $options: 'i' } }
+        ]
+      }
+    : {};
+
+  try {
+    const total = await collection.countDocuments(query);
+    const results = await collection.find(query).skip(skip).limit(limit).toArray();
+    res.json({ total, page, limit, results });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Database query failed' });
   }
-  const total = filtered.length;
-  const start = (page - 1) * limit;
-  const end = start + limit;
-  const results = filtered.slice(start, end);
-  res.json({
-    total,
-    page,
-    limit,
-    results
-  });
 });
 
 // Product details endpoint
-app.get('/product/:id', (req, res) => {
+app.get('/product/:id', async (req, res) => {
   const id = req.params.id;
-  const product = products.find(
-    p => String(p.product_id) === String(id) || String(p.sku) === String(id)
-  );
-  if (product) {
-    res.json(product);
-  } else {
-    res.status(404).json({ error: 'Product not found' });
+  try {
+    const product = await collection.findOne({
+      $or: [
+        { product_id: id },
+        { sku: id }
+      ]
+    });
+    if (product) {
+      res.json(product);
+    } else {
+      res.status(404).json({ error: 'Product not found' });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Database error' });
   }
 });
 
-// Start server after loading products
-loadProducts().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
-}).catch(err => {
-  console.error('Failed to load products:', err);
-  process.exit(1);
-}); 
+// Connect to MongoDB and start server
+async function startServer() {
+  try {
+    await client.connect();
+    const db = client.db("walmart");
+    collection = db.collection("products");
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running at http://localhost:${PORT}`);
+    });
+  } catch (err) {
+    console.error("❌ Failed to connect to MongoDB:", err);
+    process.exit(1);
+  }
+}
+
+startServer();
