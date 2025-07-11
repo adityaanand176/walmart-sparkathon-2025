@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useCart } from './CartContext';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -33,6 +34,7 @@ const SearchPage = () => {
   const query = useQuery();
   const searchTerm = query.get('q') || '';
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     setLoading(true);
@@ -102,7 +104,20 @@ const SearchPage = () => {
                       <div className="text-xs text-gray-600 mb-1">Brand: {product.brand || 'N/A'}</div>
                       <div className="text-xs text-gray-600 mb-1">Category: {product.category_name || 'N/A'}</div>
                     </div>
-                    <button className="bg-blue-600 text-white rounded px-4 py-2 mt-2 font-semibold hover:bg-blue-700">Options</button>
+                    <button
+                      className="bg-blue-600 text-white rounded px-4 py-2 mt-2 font-semibold hover:bg-blue-700"
+                      onClick={e => {
+                        e.stopPropagation();
+                        addToCart({
+                          id: product.product_id || product.sku || product.product_name,
+                          product_name: product.product_name,
+                          final_price: product.final_price,
+                          ...product
+                        });
+                      }}
+                    >
+                      Add to cart
+                    </button>
                     <div className="flex items-center mt-2">
                       <span className="text-yellow-400 mr-1">★</span>
                       <span className="text-sm font-medium">{product.rating || product.rating_stars || 'N/A'}</span>

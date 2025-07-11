@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from './Header';
+import { useCart } from './CartContext';
 
 const BACKEND_URL = 'http://localhost:4000';
 
@@ -23,6 +24,7 @@ const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState('');
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     setLoading(true);
@@ -121,7 +123,17 @@ const ProductPage = () => {
               <span className="text-2xl font-bold">${product.final_price || 'N/A'}</span>
               <div className="text-xs text-gray-500">Price when purchased online</div>
             </div>
-            <button className="bg-blue-600 text-white rounded px-4 py-3 font-semibold mb-4 hover:bg-blue-700">Add to cart</button>
+            <button
+              className="bg-blue-600 text-white rounded px-4 py-3 font-semibold mb-4 hover:bg-blue-700"
+              onClick={() => addToCart({
+                id: product.product_id || product.sku || product.product_name,
+                product_name: product.product_name,
+                final_price: product.final_price,
+                ...product
+              })}
+            >
+              Add to cart
+            </button>
             <div className="mb-4">
               <div className="bg-blue-50 p-2 rounded text-xs text-blue-700 mb-2">Pro Wall Hanging Service<br /><span className="text-gray-500">Accessory Wall Mounting - $65.00</span></div>
             </div>

@@ -6,6 +6,8 @@ import PromoCard from './components/PromoCard';
 import MainCarousel from './components/MainCarousel';
 import SearchPage from './components/SearchPage';
 import ProductPage from './components/ProductPage';
+import CartPage from './components/CartPage';
+import { CartProvider } from './components/CartContext';
 
 const WalmartHeroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -129,12 +131,15 @@ const WalmartHeroPage = () => {
 
 const App = () => (
   <>
-  <Header/>
-  <Routes>
-    <Route path="/" element={<WalmartHeroPage />} />
-    <Route path="/search" element={<SearchPage />} />
-    <Route path="/product/:id" element={<ProductPage />} />
-  </Routes>
+  <CartProvider>
+    <Header/>
+    <Routes>
+      <Route path="/" element={<WalmartHeroPage />} />
+      <Route path="/search" element={<SearchPage />} />
+      <Route path="/product/:id" element={<ProductPage />} />
+      <Route path="/cart" element={<CartPage />} />
+    </Routes>
+  </CartProvider>
   </>
 );
 

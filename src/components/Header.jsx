@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { MapPin, ChevronDown, Search, ShoppingCart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from './CartContext';
 
 function Header() {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const { cart } = useCart();
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -53,12 +56,12 @@ function Header() {
             <div className="text-xs">Sign In</div>
             <div className="text-sm font-semibold">Account</div>
           </div>
-          <div className="relative">
+          <div className="relative cursor-pointer" onClick={() => navigate('/cart')}>
             <ShoppingCart className="w-6 h-6" />
             <span className="absolute -top-2 -right-2 bg-yellow-400 text-blue-600 rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
-              0
+              {cartCount}
             </span>
-            <div className="text-sm mt-1">$0.00</div>
+            <div className="text-sm mt-1">${cart.reduce((sum, item) => sum + (item.final_price || 0) * item.quantity, 0).toFixed(2)}</div>
           </div>
         </div>
       </div>
