@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ProductCard from './ProductCard';
+import { useCart } from './CartContext';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -18,6 +19,7 @@ const SearchPage = () => {
   const query = useQuery();
   const searchTerm = query.get('q') || '';
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   useEffect(() => {
     setLoading(true);
