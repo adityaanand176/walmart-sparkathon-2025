@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+<<<<<<< HEAD
 import { useCart } from './CartContext';
+=======
+import ProductCard from './ProductCard';
+>>>>>>> 10844019f184a25d3776545bf157b8641e14732c
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -8,22 +12,6 @@ function useQuery() {
 
 const BACKEND_URL = 'http://localhost:4000';
 
-function getProductImage(product) {
-  // Use main_image if valid, else first from image_urls
-  if (product.main_image && product.main_image.startsWith('http')) return product.main_image;
-  if (product.image_urls) {
-    try {
-      // Try to parse as JSON array
-      const arr = JSON.parse(product.image_urls.replace(/''/g, '"'));
-      if (Array.isArray(arr) && arr.length && arr[0].startsWith('http')) return arr[0];
-    } catch {
-      // Fallback: split by comma
-      const arr = product.image_urls.split(',').map(s => s.replace(/\[|\]|"/g, '').trim()).filter(Boolean);
-      if (arr.length && arr[0].startsWith('http')) return arr[0];
-    }
-  }
-  return 'https://via.placeholder.com/200x200?text=No+Image';
-}
 
 const SearchPage = () => {
   const [products, setProducts] = useState([]);
@@ -79,6 +67,7 @@ const SearchPage = () => {
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products.map(product => (
+<<<<<<< HEAD
                 <div
                   key={product.product_id || product.sku || product.product_name}
                   className="bg-white rounded-lg shadow p-4 flex flex-col cursor-pointer hover:shadow-lg transition"
@@ -125,6 +114,9 @@ const SearchPage = () => {
                     </div>
                   </div>
                 </div>
+=======
+                <ProductCard key={product.id} product={product}/>
+>>>>>>> 10844019f184a25d3776545bf157b8641e14732c
               ))}
             </div>
             {/* Pagination */}
