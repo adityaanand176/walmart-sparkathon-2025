@@ -12,7 +12,7 @@ class PineClient:
     def text_query(self, embedding) -> List:
         results=self.index.query(
             vector=embedding,
-            top_k=5,
+            top_k=20,
             include_values=True,
             include_metadata=True
         )
@@ -22,7 +22,7 @@ class PineClient:
     def image_query(self, image_url) -> List:
         results=self.index.query(
             vector=image_url,
-            top_k=5,
+            top_k=20,
             include_values=True,
             include_metadata=True
         )

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ProductCard from './ProductCard';
+import axios from 'axios';
 import { useCart } from './CartContext';
 
 function useQuery() {
@@ -11,26 +12,54 @@ const BACKEND_URL = 'http://localhost:4000';
 
 
 const SearchPage = () => {
-  const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [limit] = useState(8); // Show 8 per page for grid
   const query = useQuery();
   const searchTerm = query.get('q') || '';
-  const navigate = useNavigate();
   const { addToCart } = useCart();
 
   useEffect(() => {
-    setLoading(true);
-    fetch(`${BACKEND_URL}/search?q=${encodeURIComponent(searchTerm)}&page=${page}&limit=${limit}`)
-      .then(res => res.json())
-      .then(data => {
-        setProducts(data.results);
+    // dont initialize if empty search
+    if (!searchTerm) {
+        setAllProducts([]);
+        setTotal(0);
+        return;
+    }
+
+    const fetchData = async ()=>{
+
+      setLoading(true);
+      setPage(1)
+      try {
+        const res = await axios.post(`${BACKEND_URL}/api/embed?q=${encodeURIComponent(searchTerm)}`);
+        const data = res.data;
+        setAllProducts(data.results);
         setTotal(data.total);
+      }
+      catch (err){
+        console.error("Fetch error: ", err);
+        setAllProducts([]);
+        setTotal(0);
+      }
+      finally {
         setLoading(false);
-      });
-  }, [searchTerm, page, limit]);
+      }
+    };
+    fetchData();
+  }, [searchTerm]);
+
+   useEffect(() => {
+      const startIndex = (page - 1) * limit;
+      const endIndex = startIndex + limit;
+      // Slice the full list of products to get the items for the current page
+      setDisplayedProducts(allProducts.slice(startIndex, endIndex));
+  
+    }, [page, allProducts, limit]);
+  
 
   const totalPages = Math.ceil(total / limit);
 
@@ -63,8 +92,8 @@ const SearchPage = () => {
         ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {products.map(product => (
-                <ProductCard key={product.id} product={product}/>
+              {displayedProducts.map(product => (
+                <ProductCard key={product.product_id} product={product}/>
               ))}
             </div>
             {/* Pagination */}
