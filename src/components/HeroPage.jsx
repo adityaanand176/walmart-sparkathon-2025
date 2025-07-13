@@ -3,17 +3,15 @@ import Navigation from './Navigation';
 import PromoCard from './PromoCard';
 import MainCarousel from './MainCarousel';
 
+
 const HeroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <>
-    
-    <div className="min-h-screen bg-gray-50">
-      
+    <div className="flex-grow flex flex-col bg-gray-50">
       <Navigation />
-      
-      <main className="max-w-7xl mx-auto px-4 py-6">
+      {/* Add a specific padding-bottom here to ensure space for the footer */}
+      <main className="max-w-7xl mx-auto px-4 py-6 w-full pb-24"> 
         <div className="grid grid-cols-12 gap-4">
           {/* Left Column */}
           <div className="col-span-3 space-y-4">
@@ -28,7 +26,6 @@ const HeroPage = () => {
                 <span className="text-white text-xs">FOREO</span>
               </div>
             </PromoCard>
-            
             <PromoCard
               title="Up to 20% off Resold"
               buttonText="Shop Deals"
@@ -41,12 +38,10 @@ const HeroPage = () => {
               </div>
             </PromoCard>
           </div>
-          
           {/* Center Column */}
           <div className="col-span-6">
             <MainCarousel currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
           </div>
-          
           {/* Right Column */}
           <div className="col-span-3 space-y-4">
             <PromoCard
@@ -60,7 +55,6 @@ const HeroPage = () => {
                 <span className="text-white text-xs">Crib</span>
               </div>
             </PromoCard>
-            
             <PromoCard
               title="Up to 50% off school supplies"
               buttonText="Shop Deals"
@@ -72,7 +66,6 @@ const HeroPage = () => {
                 <span className="text-gray-800 text-xs">Crayola</span>
               </div>
             </PromoCard>
-            
             <PromoCard
               title="Up to 30% off bikes & ride-ons"
               buttonText="Shop Deals"
@@ -86,7 +79,6 @@ const HeroPage = () => {
             </PromoCard>
           </div>
         </div>
-        
         {/* Bottom Row */}
         <div className="grid grid-cols-12 gap-4 mt-4">
           <div className="col-span-6">
@@ -102,7 +94,6 @@ const HeroPage = () => {
               </div>
             </PromoCard>
           </div>
-          
           <div className="col-span-6">
             <PromoCard
               title="Up to 65% off"
@@ -118,9 +109,9 @@ const HeroPage = () => {
           </div>
         </div>
       </main>
+
     </div>
-    </>
   );
 };
 
-export default HeroPage; 
+export default HeroPage;
