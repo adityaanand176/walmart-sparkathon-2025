@@ -85,12 +85,12 @@ const SearchPage = () => {
       </aside>
       {/* Main Content */}
       <main className="flex-1 p-6">
-        <h2 className="text-xl font-bold mb-2">Results for "<span className="text-blue-600">{searchTerm}</span>" ({total})</h2>
-        <p className="text-gray-500 text-sm mb-6">Uses item details. Price when purchased online</p>
         {loading ? (
           <div className="text-center py-12 text-lg">Loading...</div>
         ) : (
           <>
+          <h2 className="text-xl font-bold mb-2">Results for "<span className="text-blue-600">{searchTerm}</span>" ({total})</h2>
+          <p className="text-gray-500 text-sm mb-6">Uses item details. Price when purchased online</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {displayedProducts.map(product => (
                 <ProductCard key={product.product_id} product={product}/>
