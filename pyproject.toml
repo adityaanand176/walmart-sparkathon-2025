@@ -1,0 +1,14 @@
+[project]
+name = "walmart-sparkathon-2025"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "cohere>=5.16.1",
+    "fastapi>=0.116.1",
+    "pandas>=2.3.1",
+    "pinecone[grpc]>=7.3.0",
+    "python-dotenv>=1.1.1",
+    "tqdm>=4.67.1",
+]
