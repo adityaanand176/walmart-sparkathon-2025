@@ -1,16 +1,23 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import { MapPin, ChevronDown, Search, ShoppingCart, Camera, X, Upload } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useCart } from './CartContext';
 import './Header.css';
 
-function Header({ glowActive, setGlowActive }) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchMode, setSearchMode] = useState('text'); // 'text' or 'image'
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [isDragOver, setIsDragOver] = useState(false);
+function Header({
+  searchTerm,
+  setSearchTerm,
+  searchMode,
+  setSearchMode,
+  selectedImage,
+  setSelectedImage,
+  isDragOver,
+  setIsDragOver,
+  glowActive,
+  setGlowActive,
+  navigate
+}) {
   const fileInputRef = useRef(null);
-  const navigate = useNavigate();
   const location = useLocation();
   const { cart } = useCart();
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);

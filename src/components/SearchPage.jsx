@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import ProductCard from './ProductCard';
+import ProductGridSkeleton from './ProductGridSkeleton';
 import axios from 'axios';
 import { useCart } from './CartContext';
 import { Camera, Upload, X } from 'lucide-react';
@@ -11,96 +12,35 @@ function useQuery() {
 
 const BACKEND_URL = 'http://localhost:4000';
 
-const SearchPage = ({ glowActive, setGlowActive }) => {
+const SearchPage = ({
+  searchTerm,
+  setSearchTerm,
+  searchMode,
+  setSearchMode,
+  selectedImage,
+  setSelectedImage,
+  isDragOver,
+  setIsDragOver,
+  glowActive,
+  setGlowActive,
+  navigate
+}) => {
   const [allProducts, setAllProducts] = useState([]);
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
-  const [limit] = useState(8); // Show 8 per page for grid
-  const [searchMode, setSearchMode] = useState('text'); // 'text' or 'image'
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [isDragOver, setIsDragOver] = useState(false);
   const [imageSearchResults, setImageSearchResults] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
   
   const query = useQuery();
   const urlSearchTerm = query.get('q') || '';
   const isImageSearch = query.get('image') === 'true';
   const { addToCart } = useCart();
-  const navigate = useNavigate();
-
-  // Handle input change for text search
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
-    if (!glowActive && e.target.value.length > 0) {
-      setGlowActive(true);
-    }
-  };
-
-  // Handle search submit
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchMode === 'text' && searchTerm.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
-    } else if (searchMode === 'image' && selectedImage) {
-      navigate(`/search?image=true`);
-    }
-  };
-
-  // Handle search mode toggle
-  const handleToggleSearchMode = () => {
-    setSearchMode(searchMode === 'text' ? 'image' : 'text');
-    setSelectedImage(null);
-    setSearchTerm('');
-  };
-
-  // Handle image upload
-  const handleImageUpload = (file) => {
-    if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setSelectedImage({
-          file: file,
-          preview: e.target.result
-        });
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  // Drag and drop handlers for image
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    setIsDragOver(true);
-  };
-  const handleDragLeave = (e) => {
-    e.preventDefault();
-    setIsDragOver(false);
-  };
-  const handleDrop = (e) => {
-    e.preventDefault();
-    setIsDragOver(false);
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-      handleImageUpload(files[0]);
-    }
-  };
-  const handleFileInput = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      handleImageUpload(file);
-    }
-  };
-  const clearImage = () => {
-    setSelectedImage(null);
-  };
 
   useEffect(() => {
-    if (isImageSearch) {
-      setSearchMode('image');
+    if (!loading && glowActive) {
+      setGlowActive(false);
     }
-  }, [isImageSearch]);
+  }, [loading]);
 
   useEffect(() => {
     // dont initialize if empty search
@@ -112,7 +52,6 @@ const SearchPage = ({ glowActive, setGlowActive }) => {
 
     const fetchData = async () => {
       setLoading(true);
-      setPage(1);
       try {
         let res;
         if (isImageSearch && selectedImage) {
@@ -151,22 +90,13 @@ const SearchPage = ({ glowActive, setGlowActive }) => {
   }, [urlSearchTerm, isImageSearch, selectedImage]);
 
   useEffect(() => {
-    if (!loading && glowActive) {
-      // Stop glow after loading is done
-      setGlowActive(false);
-    }
-  }, [loading]);
+    const startIndex = (page - 1) * 8;
+    const endIndex = startIndex + 8;
+    setDisplayedProducts(allProducts.slice(startIndex, endIndex));
+  }, [allProducts]);
 
-   useEffect(() => {
-      const startIndex = (page - 1) * limit;
-      const endIndex = startIndex + limit;
-      // Slice the full list of products to get the items for the current page
-      setDisplayedProducts(allProducts.slice(startIndex, endIndex));
-  
-    }, [page, allProducts, limit]);
-  
-
-  const totalPages = Math.ceil(total / limit);
+  const [page, setPage] = useState(1);
+  const totalPages = Math.ceil(total / 8);
 
   return (
     <div className="flex bg-gray-50 min-h-screen">
@@ -189,7 +119,7 @@ const SearchPage = ({ glowActive, setGlowActive }) => {
       {/* Main Content */}
       <main className="flex-1 p-6">
         {loading ? (
-          <div className="text-center py-12 text-lg">Loading...</div>
+          <ProductGridSkeleton />
         ) : (
           <>
             {urlSearchTerm && (

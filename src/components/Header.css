@@ -81,22 +81,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 56px;
+  min-height: 40px;
   padding: 0;
 }
 .neon-animated-glow::before {
   content: '';
   position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
   border-radius: 9999px;
   z-index: -1;
   background: linear-gradient(270deg, #ff00cc, #00fff7, #fffb00, #ff00cc);
   background-size: 600% 600%;
-  animation: neon-move 5s linear infinite;
-  filter: blur(12px);
+  animation: neon-move 7s linear infinite;
+  filter: blur(4px);
   opacity: 0.7;
 }
 @keyframes neon-move {
@@ -112,7 +112,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 44px;
+  min-height: 36px;
   padding: 0 0.5rem;
   position: relative;
   z-index: 1;
@@ -123,8 +123,8 @@
   border: none;
   outline: none;
   color: #222;
-  font-size: 1.1rem;
-  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+  font-size: 1rem;
+  padding: 0.4rem 1.5rem 0.4rem 2.5rem;
   border-radius: 9999px;
   width: 100%;
 }
@@ -142,14 +142,15 @@
   background: #2563eb;
   color: #fff;
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 1.75rem;
+  height: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   outline: none;
   z-index: 2;
+  font-size: 1rem;
 }
 
 .neon-search-submit-btn {
@@ -162,4 +163,5 @@
   outline: none;
   z-index: 2;
   color: #444;
+  font-size: 1rem;
 } 
