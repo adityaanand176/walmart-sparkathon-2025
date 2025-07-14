@@ -95,7 +95,14 @@ function Header({
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between py-3">
           <div className="flex items-center space-x-4">
-            <div className="text-2xl font-bold text-yellow-400">✱</div>
+            <button
+              className="text-4xl md:text-5xl font-bold text-yellow-400 focus:outline-none hover:scale-110 transition-transform"
+              onClick={() => navigate('/')}
+              aria-label="Go to homepage"
+              style={{ lineHeight: 1 }}
+            >
+              ✱
+            </button>
             <div className="flex items-center space-x-2">
               <MapPin className="w-4 h-4" />
               <div>
