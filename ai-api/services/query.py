@@ -1,5 +1,5 @@
 import os
-from pinecone.grpc import PineconeGRPC as Pinecone
+from pinecone import Pinecone
 # from pinecone import ServerlessSpec #future use probably
 from typing import List
 
