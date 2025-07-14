@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { MapPin, ChevronDown, Search, ShoppingCart, Camera, X, Upload, ArrowUp } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { useCart } from './CartContext';
+import { useImageSearch } from './ImageSearchContext';
 import './Header.css';
 
 function Header({
@@ -9,8 +10,6 @@ function Header({
   setSearchTerm,
   searchMode,
   setSearchMode,
-  selectedImage,
-  setSelectedImage,
   isDragOver,
   setIsDragOver,
   glowActive,
@@ -21,6 +20,7 @@ function Header({
   const location = useLocation();
   const { cart } = useCart();
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const { selectedImage, setSelectedImage } = useImageSearch();
   const [mode, setMode] = React.useState('camera'); // 'camera', 'image', or 'search'
 
   // Search logic
@@ -31,7 +31,7 @@ function Header({
       setTimeout(() => {
         navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
       }, 50);
-    } else if (mode === 'search' && selectedImage) {
+    } else if (selectedImage) {
       setGlowActive(true);
       setTimeout(() => {
         navigate(`/search?image=true`);
@@ -42,13 +42,15 @@ function Header({
   // New: handle right button click
   const handleRightButtonClick = (e) => {
     if (mode === 'camera') {
-      // Switch to image mode (do NOT open file dialog)
       setGlowActive(true);
       setMode('image');
       setSearchTerm('');
       setSelectedImage(null);
+    } else if (mode === 'image' && selectedImage) {
+      // Submit image search
+      handleSearch(e);
     } else if (mode === 'image') {
-      // Switch back to camera mode
+      // Switch back to camera mode (no image selected)
       setMode('camera');
       setSelectedImage(null);
       setSearchTerm('');
@@ -204,11 +206,13 @@ function Header({
                   )}
                   {/* Right toggle/upload/send button */}
                   <button
-                    type={mode === 'search' && searchTerm.length > 0 ? 'submit' : 'button'}
+                    type={
+                      (mode === 'search' && searchTerm.length > 0) || (mode === 'image' && selectedImage) ? 'submit' : 'button'}
                     className="neon-search-toggle-btn neon-search-toggle-btn-right"
                     onClick={handleRightButtonClick}
                     aria-label={
                       mode === 'camera' ? 'Switch to image search' :
+                      mode === 'image' && selectedImage ? 'Submit image search' :
                       mode === 'image' ? 'Switch to text search' :
                       'Submit search'
                     }
@@ -216,6 +220,8 @@ function Header({
                     <span className="flex items-center justify-center w-7 h-7 rounded-full bg-blue-600">
                       {mode === 'camera' ? (
                         <Camera className="w-5 h-5 text-white" />
+                      ) : mode === 'image' && selectedImage ? (
+                        <ArrowUp className="w-5 h-5 text-white" />
                       ) : mode === 'image' ? (
                         <Search className="w-5 h-5 text-white" />
                       ) : (

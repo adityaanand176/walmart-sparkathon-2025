@@ -5,6 +5,7 @@ import ProductGridSkeleton from './ProductGridSkeleton';
 import axios from 'axios';
 import { useCart } from './CartContext';
 import { Camera, Upload, X } from 'lucide-react';
+import { useImageSearch } from './ImageSearchContext';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -17,14 +18,13 @@ const SearchPage = ({
   setSearchTerm,
   searchMode,
   setSearchMode,
-  selectedImage,
-  setSelectedImage,
   isDragOver,
   setIsDragOver,
   glowActive,
   setGlowActive,
   navigate
 }) => {
+  const { selectedImage, setSelectedImage } = useImageSearch();
   const [allProducts, setAllProducts] = useState([]);
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [total, setTotal] = useState(0);
