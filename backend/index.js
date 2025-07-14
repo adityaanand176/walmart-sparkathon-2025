@@ -3,6 +3,7 @@ import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import axios from 'axios';
+import multer from 'multer';
 
 dotenv.config();
 
@@ -11,6 +12,21 @@ app.use(cors());
 const PORT = process.env.PORT || 4000;
 const MONGO_URL = process.env.MONGO_URL;
 const QUERY_URL = process.env.QUERY_URL;
+
+// Configure multer for file uploads
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 10 * 1024 * 1024, // 10MB limit
+  },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith('image/')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only image files are allowed'), false);
+    }
+  },
+});
 
 const client = new MongoClient(MONGO_URL);
 let collection;
@@ -125,6 +141,61 @@ app.post('/api/embed', express.json(), async (req, res) => {
     } else {
       console.error("Error processing request:", err.message);
       res.status(500).json({ error: "Failed to process query" });
+    }
+  }
+});
+
+// Image search endpoint
+app.post('/api/image-search', upload.single('image'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No image file provided' });
+    }
+
+    // Convert image to base64 for the AI service
+    const base64Image = req.file.buffer.toString('base64');
+    
+    // Call the AI service for image search
+    const response = await axios.post(`${QUERY_URL}/embed-image`, {
+      image: base64Image,
+      image_type: req.file.mimetype
+    });
+
+    const allProductIds = response.data.products;
+
+    if (!allProductIds || allProductIds.length === 0) {
+      return res.json({
+        total: 0,
+        results: []
+      });
+    }
+
+    const total = allProductIds.length;
+
+    // Fetch products from database
+    const results = await collection.find({
+      $or: [
+        { product_id: { $in: allProductIds } },
+        { sku: { $in: allProductIds } }
+      ]
+    }).toArray();
+    
+    // Preserve order from the embedding service
+    const resultsById = new Map(results.map(doc => [doc.product_id || doc.sku, doc]));
+    const orderedResults = allProductIds.map(id => resultsById.get(id)).filter(Boolean);
+
+    res.json({
+      total,
+      results: orderedResults
+    });
+
+  } catch (err) {
+    console.error('Image search error:', err);
+    if (err.response) {
+      console.error("Error from FastAPI service:", err.response.data);
+      res.status(err.response.status || 500).json({ error: "Failed to process image search" });
+    } else {
+      res.status(500).json({ error: "Failed to process image search" });
     }
   }
 });
