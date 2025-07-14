@@ -89,14 +89,14 @@ const SearchPage = ({
     }
   }, [urlSearchTerm, isImageSearch, selectedImage]);
 
+  
+  const [page, setPage] = useState(1);
+  const totalPages = Math.ceil(total / 8);
   useEffect(() => {
     const startIndex = (page - 1) * 8;
     const endIndex = startIndex + 8;
     setDisplayedProducts(allProducts.slice(startIndex, endIndex));
-  }, [allProducts]);
-
-  const [page, setPage] = useState(1);
-  const totalPages = Math.ceil(total / 8);
+  }, [allProducts, page]);
 
   return (
     <div className="flex bg-gray-50 min-h-screen">
