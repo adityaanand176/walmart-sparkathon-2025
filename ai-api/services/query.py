@@ -1,5 +1,5 @@
 import os
-from pinecone.grpc import PineconeGRPC as Pinecone
+from pinecone import Pinecone
 # from pinecone import ServerlessSpec #future use probably
 from typing import List
 
@@ -9,22 +9,15 @@ class PineClient:
         self.INDEX_NAME = INDEX_NAME
         self.index = self.client.Index(self.INDEX_NAME)
     
-    def text_query(self, embedding) -> List:
+    def query(self, embedding:List[float], db="text") -> List:
         results=self.index.query(
             vector=embedding,
             top_k=20,
             include_values=True,
             include_metadata=True
         )
-        product_id = [match["id"] for match in results["matches"]]
-        return product_id
-    
-    def image_query(self, image_url) -> List:
-        results=self.index.query(
-            vector=image_url,
-            top_k=20,
-            include_values=True,
-            include_metadata=True
-        )
-        product_id = [match["id"] for match in results["matches"]]
+        if db=="text": 
+            product_id = [(match["id"], match["score"]) for match in results["matches"]]
+        elif db=="image":
+            product_id = [(str(int(match["metadata"]["sku"])), match["score"]) for match in results["matches"]]
         return product_id

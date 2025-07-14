@@ -11,7 +11,7 @@ class Cohere:
         response = self.client.v2.embed(
             texts=[query],
             model=self.EMBED_MODEL,
-            output_dimension=1024, #gonna change this latur
+            output_dimension=1536, #gonna change this latur
             input_type="search_document",  # use "search_query" when embedding queries
             embedding_types=["float"]  # specify embedding type
         )
@@ -21,7 +21,7 @@ class Cohere:
         response = self.client.v2.embed(
             images=[image_url],
             model=self.EMBED_MODEL,
-            output_dimension=1024,
+            output_dimension=1536,
             input_type="search_document",
             embedding_types=["float"]  # specify embedding type
         )
