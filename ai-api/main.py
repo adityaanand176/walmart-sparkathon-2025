@@ -29,7 +29,6 @@ async def embed_text(request: EmbedRequest) -> ProductListResponse:
     image_task = asyncio.to_thread(pinecone_clients["image"].query, embedding, "image")
 
     text_results, image_results = await asyncio.gather(text_task, image_task)
-    print(text_results, image_results)
 
     products = sort_products(text_results, image_results)
 
