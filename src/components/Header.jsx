@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { MapPin, ChevronDown, Search, ShoppingCart, Camera, X, Upload } from 'lucide-react';
+import { MapPin, ChevronDown, Search, ShoppingCart, Camera, X, Upload, ArrowUp } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { useCart } from './CartContext';
 import './Header.css';
@@ -21,16 +21,17 @@ function Header({
   const location = useLocation();
   const { cart } = useCart();
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const [mode, setMode] = React.useState('camera'); // 'camera', 'image', or 'search'
 
   // Search logic
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchMode === 'text' && searchTerm.trim()) {
+    if (mode === 'search' && searchTerm.trim()) {
       setGlowActive(true);
       setTimeout(() => {
         navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
       }, 50);
-    } else if (searchMode === 'image' && selectedImage) {
+    } else if (mode === 'search' && selectedImage) {
       setGlowActive(true);
       setTimeout(() => {
         navigate(`/search?image=true`);
@@ -38,8 +39,39 @@ function Header({
     }
   };
 
+  // New: handle right button click
+  const handleRightButtonClick = (e) => {
+    if (mode === 'camera') {
+      // Switch to image mode (do NOT open file dialog)
+      setGlowActive(true);
+      setMode('image');
+      setSearchTerm('');
+      setSelectedImage(null);
+    } else if (mode === 'image') {
+      // Switch back to camera mode
+      setMode('camera');
+      setSelectedImage(null);
+      setSearchTerm('');
+    } else if (mode === 'search' && searchTerm.length > 0) {
+      // Submit text search
+      handleSearch(e);
+    }
+  };
+
+  // When file is uploaded, stay in image mode
+  const handleFileInput = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      handleImageUpload(file);
+      setMode('image');
+    }
+  };
+
+  // When user types, ensure mode is 'search'
   const handleSearchInputChange = (e) => {
     setSearchTerm(e.target.value);
+    if (e.target.value.length > 0 && mode !== 'search') setMode('search');
+    if (e.target.value.length === 0 && mode === 'search') setMode('camera');
     if (!glowActive && e.target.value.length > 0) {
       setGlowActive(true);
     }
@@ -80,12 +112,6 @@ function Header({
       handleImageUpload(files[0]);
     }
   };
-  const handleFileInput = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      handleImageUpload(file);
-    }
-  };
   const clearImage = () => {
     setSelectedImage(null);
   };
@@ -95,7 +121,14 @@ function Header({
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between py-3">
           <div className="flex items-center space-x-4">
-            <div className="text-2xl font-bold text-yellow-400">✱</div>
+            <button
+              className="text-4xl md:text-5xl font-bold text-yellow-400 focus:outline-none hover:scale-110 transition-transform"
+              onClick={() => navigate('/')}
+              aria-label="Go to homepage"
+              style={{ lineHeight: 1 }}
+            >
+              ✱
+            </button>
             <div className="flex items-center space-x-2">
               <MapPin className="w-4 h-4" />
               <div>
@@ -109,17 +142,8 @@ function Header({
             <form className="relative" onSubmit={handleSearch}>
               <div className={glowActive ? 'neon-animated-glow' : ''}>
                 <div className="neon-search-inner w-full">
-                  {/* Search Mode Toggle */}
-                  <button
-                    type="button"
-                    onClick={toggleSearchMode}
-                    className="neon-search-icon-btn"
-                    title={searchMode === 'text' ? 'Switch to image search' : 'Switch to text search'}
-                  >
-                    {searchMode === 'text' ? <Search className="w-5 h-5" /> : <Camera className="w-5 h-5" />}
-                  </button>
-                  {/* Text Search Input */}
-                  {searchMode === 'text' && (
+                  {/* Text Search Input (only in camera/search mode) */}
+                  {(mode === 'camera' || mode === 'search') && (
                     <input
                       type="text"
                       placeholder="Search everything at Walmart online and in store"
@@ -128,10 +152,10 @@ function Header({
                       onChange={handleSearchInputChange}
                     />
                   )}
-                  {/* Image Search Area */}
-                  {searchMode === 'image' && (
+                  {/* Image Upload Area (only in image mode) */}
+                  {mode === 'image' && (
                     <div
-                      className={`w-full min-h-[40px] flex items-center bg-transparent pl-10`}
+                      className={`image-search-area w-full min-h-[40px] flex items-center bg-transparent pl-10`}
                       onDragOver={handleDragOver}
                       onDragLeave={handleDragLeave}
                       onDrop={handleDrop}
@@ -178,8 +202,26 @@ function Header({
                       )}
                     </div>
                   )}
-                  <button type="submit" className="neon-search-submit-btn" disabled={searchMode === 'image' && !selectedImage}>
-                    <Search className={`w-5 h-5 ${searchMode === 'image' && !selectedImage ? 'text-gray-400' : 'text-gray-600'}`} />
+                  {/* Right toggle/upload/send button */}
+                  <button
+                    type={mode === 'search' && searchTerm.length > 0 ? 'submit' : 'button'}
+                    className="neon-search-toggle-btn neon-search-toggle-btn-right"
+                    onClick={handleRightButtonClick}
+                    aria-label={
+                      mode === 'camera' ? 'Switch to image search' :
+                      mode === 'image' ? 'Switch to text search' :
+                      'Submit search'
+                    }
+                  >
+                    <span className="flex items-center justify-center w-7 h-7 rounded-full bg-blue-600">
+                      {mode === 'camera' ? (
+                        <Camera className="w-5 h-5 text-white" />
+                      ) : mode === 'image' ? (
+                        <Search className="w-5 h-5 text-white" />
+                      ) : (
+                        <ArrowUp className="w-5 h-5 text-white" />
+                      )}
+                    </span>
                   </button>
                 </div>
               </div>
