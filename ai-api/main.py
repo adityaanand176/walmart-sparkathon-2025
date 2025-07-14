@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI, UploadFile
 from models.request_model import EmbedRequest
 from models.product_id_model import ProductListResponse
+from models.image_request_model import ImageEmbedRequest
 from services.embeddings import Cohere
 from services.query import PineClient
 from utils.data_manip import sort_products
@@ -32,4 +33,17 @@ async def embed_text(request: EmbedRequest) -> ProductListResponse:
 
     products = sort_products(text_results, image_results)
 
+    return ProductListResponse(products=products)
+
+@app.post("/embed-image", response_model=ProductListResponse)
+async def embed_text(request: ImageEmbedRequest) -> ProductListResponse:
+    embedding = cohere_client.get_image_embeddings(f"data:{request.image_type};base64,{request.image}")
+    
+    # Run blocking sync methods in threads concurrently
+    text_task = asyncio.to_thread(pinecone_clients["text"].query, embedding, "text")
+    image_task = asyncio.to_thread(pinecone_clients["image"].query, embedding, "image")
+
+    text_results, image_results = await asyncio.gather(text_task, image_task)
+
+    products = sort_products(text_results, image_results)
     return ProductListResponse(products=products)
