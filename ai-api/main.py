@@ -1,5 +1,6 @@
 import os
-from fastapi import FastAPI, UploadFile
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from models.request_model import EmbedRequest
 from models.product_id_model import ProductListResponse
 from models.image_request_model import ImageEmbedRequest
@@ -11,10 +12,23 @@ import asyncio
 from dotenv import load_dotenv
 load_dotenv()
 
+app = FastAPI()
+
+origins = [
+    "*" 
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 
-app = FastAPI(debug=True)
 cohere_client = Cohere(COHERE_API_KEY)
 pinecone_clients = {
     "text": PineClient(PINECONE_API_KEY, "walmart-text"),
